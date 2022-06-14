@@ -109,17 +109,87 @@
 // Don't forget to convert the percent parameter as a percentage in the body of your function: if the parameter percent is 2 you have to convert it to 0.02.
 
 // Diana
-const nb_year = (p0, percent, aug, pop) => {
-  let isInt = false;
-  if (percent.isInterger() === true) {
-    let percentToDec = percent / 100;
-    isInt = true;
-  }
+// Question 4
+// Implement a function that accepts 3 integer values a, b, c. The function should return true if a triangle can be built with the sides of given length and false in any other case.
 
-  // p0 + p0 * percent + aug
-  let totalInhabitants = (p0 + p0) * percentToDec + aug;
-  // create count variable starting at 0
-  return pop / totalInhabitants - percent;
-};
-console.log(nb_year(1500, 5, 100, 5000)); // expected 15)
-console.log(nb_year(1500000, 2.5, 10000, 2000000)); // expected 10)
+// given trhee sides determine if you can make a triangle
+// a + b > c === 1 + 2 > 2 === can create triangle
+//a + c > b
+//b + c > a
+
+// function isTriangle(a, b, c) {
+//   let triangle = false;
+//   if (a + b > c && b + c > a && a + c > b) {
+//     triangle = true;
+//   }
+//   return triangle;
+// }
+
+// given trhee sides determine if you can make a triangle
+// a + b > c
+//a + c > b
+//b + c > a
+
+// if a is equal to b
+
+// (In this case, all triangles must have surface greater than 0 to be accepted).
+
+// test cases
+// console.log(isTriangle(1, 2, 2), true);
+// console.log(isTriangle(7, 2, 2), false);
+
+// Question 5
+
+// JavaScript Arrays support a filter function (starting in JavaScript 1.6). Use the filter functionality to complete the function given.
+
+// The solution would work like the following:
+// getEvenNumbers([2,4,5,6]) // should == [2,4,6]
+//
+
+// const getEvenNumbers = (array1) => {
+//   let outPutEven = [];
+//   for (let i = 0; i < array1.length; i++) {
+//     if (array1[i] % 2 === 0) {
+//       outPutEven.push(array1[i]);
+//     }
+//   }
+//   return outPutEven;
+// };
+// console.log([1, 2, 3, 6, 8, 10].filter(getEvenNumbers()));
+
+// test cases
+// let numbers = 1,2,3,4
+// function even() {
+//   let getEven = number % 2 === 0;
+//   return getEven;
+// }
+
+// function getEvenNumbers(array) {
+//   return array.filter(even);
+// }
+// console.log(getEvenNumbers([1, 2, 3, 6, 8, 10]), [2, 6, 8, 10]); // [2,6,8,10]
+// console.log(getEvenNumbers([1, 2]), [2]); //[2]
+// console.log(getEvenNumbers([12, 14, 15]), [12, 14]); //[12,14]
+
+// filter function doesnt return an array
+// it returns a boolean value
+
+// input
+let arr1 = [1, 2, 3, 6, 8, 10];
+
+// instantiate a variable with the value of the filter method being called on an array
+
+let evenNumber = arr1.filter(function (x) {
+  return x % 2 === 0;
+});
+// callback function
+// returns if modulo/even
+
+console.log(evenNumber); // [2,6,8,10]
+
+// arrow function solution
+let even = [12, 14, 15];
+
+let giveEven = even.filter((x) => x % 2 === 0);
+
+console.log(giveEven);
